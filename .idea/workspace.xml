@@ -42,7 +42,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.ComparatorDemo">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="ComparatorDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ComparatorDemo" />
       <module name="dailyRevisionWork" />
@@ -73,9 +73,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.ComparatorDemo" />
         <item itemvalue="Application.Login" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.inhertance" />
       </list>
     </recent_temporary>
