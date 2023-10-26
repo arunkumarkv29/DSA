@@ -1,71 +1,40 @@
-import javax.swing.undo.AbstractUndoableEdit;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.concurrent.*;
+import java.util.*;
 
 public class Main {
-    public static void Merge(int[] A , int s , int mid, int e){
-        int N = mid-s+1 ;
-        int M = e-mid ;
-        int[] first = new int[N] ;
-        int[] second = new int[M] ;
-        int i=0 ;
-        int j=0 ;
-        int k=s ;
-        while(i<N){
-            first[i] = A[k] ;
-            i++ ;
-            k++ ;
+    public static class Employee implements Comparable<Employee>{
+        private String name ;
+        private String phone ;
+        private int age ;
+        Employee(String name, String phone, int age){
+            this.name = name ;
+            this.phone = phone ;
+            this.age = age ;
         }
-        k=mid+1 ;
-        while(j<M){
-            second[j] = A[k] ;
-            j++ ;
-            k++ ;
+        public String getName(){
+            return name ;
         }
-        i=0 ;j=0 ; k=s ;
-        while(i<N && j<M){
-            if(first[i]<second[j]){
-                A[k] = first[i] ;
-                i++ ;
-                k++ ;
-            }
-            else{
-                A[k] = second[j] ;
-                j++ ;
-                k++ ;
-            }
+        public String getPhone(){
+            return phone ;
         }
-        while(i<N){
-            A[k] = first[i] ;
-            i++ ;
-            k++ ;
-        }
-        while(j<M){
-            A[k] = second[j] ;
-            j++ ;
-            k++ ;
-        }
-    }
-    public static void Divide(int[] A, int s , int e){
-        if(s>=e){
-            return ;
+        public int getAge(){
+            return age ;
         }
 
-        int mid = (s+e)/2 ;
-
-        Divide(A,s,mid);
-        Divide(A,mid+1,e);
-        Merge(A,s,mid,e) ;
+        @Override
+        public int compareTo(Employee o) {
+            return this.getAge()-o.getAge();
+        }
+        public String toString(){
+            return "name: " + name + " " + "phone: " + phone + " " + "age: " + age ;
+        }
     }
     public static void main(String[] args) {
-        int[] A = {38,27,43,3,9,82,10} ;
-        int N = A.length ;
-        Divide(A,0,N-1);
-        for(int i=0 ; i<N;  i++){
-            System.out.print(A[i]+" ");
-        }
+        ArrayList<Employee> list = new ArrayList<>() ;
+        list.add(new Employee("Rahul","7674824118", 31)) ;
+        list.add(new Employee("deepak","7835966185", 25)) ;
+        list.add(new Employee("Arun","8802378109", 29)) ;
+
+        Collections.sort(list) ;
+        System.out.println(list);
     }
 }
